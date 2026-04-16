@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forbidden Planet Campaign</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background: #000;
+  color: #fff;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 20px;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+nav a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a.active,
+nav a:hover {
+  color: red;
+}
+
+section {
+  min-height: 100vh;
+  padding: 120px 10%;
+  scroll-snap-align: start;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 0.8s;
+  box-sizing: border-box;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero h1 {
+  font-size: 90px;
+  text-shadow: 0 0 25px red;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ccc;
+}
+
+.btn {
+  background: red;
+  padding: 14px 30px;
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: white;
+  color: black;
+}
+
+.split {
+  display: flex;
+  gap: 50px;
+  align-items: stretch;
+}
+
+.card {
+  background: #111;
+  padding: 30px;
+  border-left: 4px solid red;
+  flex: 1;
+  box-sizing: border-box;
+}
+
+.persona {
+  border: 2px solid red;
+  padding: 20px;
+  max-width: 420px;
+  background: #111;
+}
+
+form input,
+form select,
+form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #111;
+  border: 1px solid #333;
+  color: white;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+form button {
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: red;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background: white;
+  color: black;
+}
+
+#survey form,
+#booking form {
+  max-width: 700px;
+}
+
+#survey label {
+  display: block;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.status-message {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.success {
+  color: #7CFC00;
+}
+
+.error {
+  color: #ff6b6b;
+}
+
+h2, h3 {
+  color: white;
+}
+
+p, li {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .split {
+    flex-direction: column;
+  }
+
+  .hero h1 {
+    font-size: 56px;
+  }
+
+  nav {
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+.event-banner {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.event-banner img {
+  width: 100%;
+  max-width: 700px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+  transition: 0.3s;
+}
+
+.event-banner img:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.7);
+}
+.promo-video {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.promo-video video {
+  width: 100%;
+  max-width: 800px;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#booking">Booking</a>
+  <a href="#survey">Survey</a>
+</nav>
+
+<section id="home" class="hero">
+  <h1>FORBIDDEN PLANET CAMPAIGN EVENT</h1>
+  <p>Marketing Campaign Plan
+    Who We Are
+Forbidden Planet is the world’s largest and best-known science fiction, fantasy and cult entertainment retailer and the largest UK stockist of the latest comics and graphic novels. We specialise in selling action figures, books, comics, graphic novels, toys and games and we offer all the best merchandise from your favourite series. We have stores in many major UK cities, including our famous London Megastore on Shaftesbury Avenue and Megastores in Bristol and Southampton. To find a store near you, please use our Store Locator.
+  </p>
+  <div class="promo-video">
+  <video autoplay muted loop playsinline>
+    <source src="videos/MicrosoftTeams-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+  <div class="event-banner">
+  <img src="photos/FORBIDDEN PLANET INVITES YOU TO FRIDAY NIGHT.png" alt="Friday Night Magic Event">
+</div>
+<div class="event-banner">
+  <img src="photos/FORBIDDEN PLANET INVITES YOU TO FRIDAY NIGHT (2).png" alt="Friday Night Magic Event">
+</div>
+  <p><a href="https://forbiddenplanet.com" target="_blank" class="btn">Visit Website</a></p>
+  <a href="#about" class="btn">Explore</a>
+</section>
+
+<section id="about">
+  <h2>ABOUT THE BRAND</h2>
+  <p>
+    Forbidden Planet is the UK’s leading retailer for science fiction,
+    fantasy, comics and gaming merchandise.
+  </p>
+  <p>
+    This campaign focuses on boosting awareness and attendance for Friday
+    gaming sessions by making events more visible, more structured, and easier to join.
+  </p>
+  <p><h3>For The Collectors</h3>
+We sell merchandise from all the greatest films and TV shows including the Marvel Cinematic Universe, the DC universe, Star Wars, Doctor Who, Game Of Thrones, Star Trek, Stranger Things, Transformers and many more. Whether you’re looking for toys, figure, collectibles or accessories we have them all on offer for you.</p>
+<p><h3>For the Comic Book Fans</h3>
+We’re the largest UK stockist of all the latest comics and graphic novels. We have all your favourite super-heroes and their villainous nemeses. From Marvel and DC to Image and Boom, we have all of the newest comics with more being delivered every week.</p>
+<p><h3>For The Book Lovers</h3>
+We offer huge ranges of books on science fiction and science fact, as well as cult and pulp titles that you won’t find anywhere else. You’ll discover the complete range of your favourite authors all the way from Asimov to Zelazny in both science fiction and fantasy. Plus, we host many signings with the finest names in the genre and can offer stock that may be signed by Guillermo del Toro, Neil Gaiman, Cory Doctorow, Mike Mignola, Neal Stephenson, Dan Slott, Charles Stross and hundreds more – you can lose yourself in the choice. Our range of specialist books covers every cult genre from hard science fact to space and alternative cultures to fantasy, horror and cult entertainment. You’ll find the best in photographic and art books as well as documentary and behind-the-scenes information about the latest movies and TV shows.</p>
+<p><h3>For The Gamers</h3>
+Discover our core rulebooks, supplements and fiction from the worlds of Dungeons and Dragons, H P Lovecraft and Magic The Gathering – plus merchandise from popular games such as Assassin’s Creed or Halo.</p>
+<p><h3>The FP Newsletter</h3>
+To keep on the cutting edge of what’s cool on our website, or to find out what exciting events are going on in our stores, click here to join the FP Newsletter and get up-to-the- minute news. It’s all about signings, events, competitions and special offers – if it’s hot, it’s in!</p>
+<p><h3>International orders</h3>
+A shipping quote will be emailed to our customers who have placed an order internationally. The quote will require a response before we can proceed to bill the order. Any international customers that wish to receive a quote before placing an order please email us and let us know what you want to order.</p>
+<p><h3>Product Availability</h3>
+All products and prices are valid strictly while stocks last. Forbidden Planet cannot be held responsible for changes to suppliers’ products, pricing or pre order schedules.</p>
+</section>
+
+<section id="strategy">
+  <h2>CAMPAIGN STRATEGY</h2>
+
+  <div class="split">
+    <div class="card">
+      <h3>Problems</h3>
+      <ul>
+        <li>Limited physical space</li>
+        <li>Low awareness of events</li>
+        <li>No structured booking system</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Solutions</h3>
+      <ul>
+        <li>Split sessions into two time slots</li>
+        <li>Promote events through Instagram and TikTok</li>
+        <li>Use bookings and survey data to improve turnout</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="booking">
+  <h2>BOOK YOUR SESSION</h2>
+
+  <form>
+    <input type="text" placeholder="Name" required>
+    <input type="email" placeholder="Email" required>
+
+    <select required>
+      <option value="">Choose a session</option>
+      <option>5:00 – 6:30</option>
+      <option>7:00 – 8:30</option>
+    </select>
+
+    <button type="submit">Reserve Spot</button>
+  </form>
+</section>
+
+<section id="survey">
+  <h2>EVENT FEEDBACK SURVEY</h2>
+
+  <form id="surveyForm">
+    <label for="q1">1. How did you hear about us?</label>
+    <select id="q1" name="q1" required>
+      <option value="">Select one</option>
+      <option>Instagram</option>
+      <option>TikTok</option>
+      <option>Friends</option>
+      <option>In-store</option>
+    </select>
+
+    <label for="q2">2. How often do you attend gaming events?</label>
+    <select id="q2" name="q2" required>
+      <option value="">Select one</option>
+      <option>Weekly</option>
+      <option>Monthly</option>
+      <option>Rarely</option>
+      <option>Never</option>
+    </select>
+
+    <label for="q3">3. What interests you most?</label>
+    <select id="q3" name="q3" required>
+      <option value="">Select one</option>
+      <option>Trading Cards</option>
+      <option>Board Games</option>
+      <option>Comics</option>
+      <option>Social Events</option>
+    </select>
+
+    <label for="q4">4. Preferred time for events?</label>
+    <select id="q4" name="q4" required>
+      <option value="">Select one</option>
+      <option>Afternoon</option>
+      <option>Early Evening</option>
+      <option>Late Evening</option>
+    </select>
+
+    <label for="q5">5. Would you attend a split session event?</label>
+    <select id="q5" name="q5" required>
+      <option value="">Select one</option>
+      <option>Yes</option>
+      <option>No</option>
+      <option>Maybe</option>
+    </select>
+
+    <label for="q6">6. What would motivate you to attend?</label>
+    <select id="q6" name="q6" required>
+      <option value="">Select one</option>
+      <option>Prizes</option>
+      <option>Socialising</option>
+      <option>Competition</option>
+      <option>Learning</option>
+    </select>
+
+    <label for="q7">7. How likely are you to recommend us?</label>
+    <select id="q7" name="q7" required>
+      <option value="">Select one</option>
+      <option>Very likely</option>
+      <option>Likely</option>
+      <option>Unlikely</option>
+    </select>
+
+    <label for="q8">8. Have you attended before?</label>
+    <select id="q8" name="q8" required>
+      <option value="">Select one</option>
+      <option>Yes</option>
+      <option>No</option>
+    </select>
+
+    <label for="q9">9. What platform do you use most?</label>
+    <select id="q9" name="q9" required>
+      <option value="">Select one</option>
+      <option>Instagram</option>
+      <option>TikTok</option>
+      <option>Snapchat</option>
+    </select>
+
+    <label for="q10">10. How important is community to you?</label>
+    <select id="q10" name="q10" required>
+      <option value="">Select one</option>
+      <option>Very important</option>
+      <option>Somewhat important</option>
+      <option>Not important</option>
+    </select>
+
+    <label for="feedback">11. Any suggestions or feedback?</label>
+    <textarea id="feedback" name="feedback" rows="5" placeholder="Write here..." required></textarea>
+
+    <button type="submit" id="submitBtn">Submit Survey</button>
+    <div id="formStatus" class="status-message"></div>
+  </form>
+</section>
+
+<section id="audience">
+  <h2>TARGET AUDIENCE</h2>
+
+  <div class="split">
+    <div class="card">
+      <h3>Primary</h3>
+      <p>Teenagers and young adults aged 16–30, especially gamers, anime fans, and people already familiar with tabletop games.</p>
+    </div>
+
+    <div class="card">
+      <h3>Secondary</h3>
+      <p>University students, casual gamers looking for new hobbies, and people interested in card trading and community events.</p>
+    </div>
+  </div>
+</section>
+
+<section id="persona">
+  <h2>CONSUMER PERSONA</h2>
+
+  <div class="persona">
+    <p><strong>Name:</strong> Student Gamer</p>
+    <p><strong>Age:</strong> 18–24</p>
+    <p><strong>Interests:</strong> Gaming, comics, trading cards</p>
+    <p><strong>Goal:</strong> Find social, fun, affordable events with a strong community feel</p>
+  </div>
+</section>
+
+<script>
+const sections = document.querySelectorAll("section");
+const links = document.querySelectorAll("nav a");
+
+function updateOnScroll() {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+
+    if (top < window.innerHeight - 100) {
+      sec.classList.add("show");
+    }
+
+    if (top < window.innerHeight / 2 && top > -window.innerHeight / 2) {
+      links.forEach(l => l.classList.remove("active"));
+      const activeLink = document.querySelector(`nav a[href="#${sec.id}"]`);
+      if (activeLink) activeLink.classList.add("active");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateOnScroll);
+window.addEventListener("load", updateOnScroll);
+
+const surveyForm = document.getElementById("surveyForm");
+const submitBtn = document.getElementById("submitBtn");
+const formStatus = document.getElementById("formStatus");
+
+surveyForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Submitting...";
+  formStatus.textContent = "";
+  formStatus.className = "status-message";
+
+  const data = {
+    q1: document.getElementById("q1").value,
+    q2: document.getElementById("q2").value,
+    q3: document.getElementById("q3").value,
+    q4: document.getElementById("q4").value,
+    q5: document.getElementById("q5").value,
+    q6: document.getElementById("q6").value,
+    q7: document.getElementById("q7").value,
+    q8: document.getElementById("q8").value,
+    q9: document.getElementById("q9").value,
+    q10: document.getElementById("q10").value,
+    feedback: document.getElementById("feedback").value
+  };
+
+  try {
+    await fetch("https://script.google.com/macros/s/AKfycbx8TeRbMuzlkJd2d3wDzo18lzvCLNxhVmbLZaBDxwC3fCimoiGvsbAS_XPU6rk-4ymg/exec", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    });
+
+    formStatus.textContent = "Survey submitted successfully.";
+    formStatus.classList.add("success");
+    surveyForm.reset();
+  } catch (error) {
+    formStatus.textContent = "Something went wrong. Please try again.";
+    formStatus.classList.add("error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Submit Survey";
+  }
+});
+</script>
+
+</body>
+</html>
